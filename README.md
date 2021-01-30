@@ -56,10 +56,12 @@
 		cd code/ & sh train.sh
 
    	2. 训练权重文件保存在user_data/model_data目录中
+	
 
    - **预测**
         1. **运行:**
 		cd code/ & sh test.sh
+		
 	2. 训练权重文件保存在user_data/model_data目录中
    
    
