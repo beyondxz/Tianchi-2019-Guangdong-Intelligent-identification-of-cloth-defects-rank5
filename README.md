@@ -60,7 +60,7 @@
    - **预测**
         1. **运行:**
 		cd code/ & sh test.sh
-	2. 最终预测结果保存在prediction_result目录中
+	2. 训练权重文件保存在user_data/model_data目录中
    
    
 
