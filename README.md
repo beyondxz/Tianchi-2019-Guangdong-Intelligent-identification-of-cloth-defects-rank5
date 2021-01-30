@@ -39,16 +39,15 @@
         conda create -n guangdong python=3.7 -y
         conda activate guangdong
 	pip install --upgrade pip
-
-   2. 安装 paddlepaddle
-       python -m pip install paddlepaddle-gpu==2.0.0.post110 -f https://paddlepaddle.org.cn/whl/stable.html
-        
-   3. 安装其他依赖
+   2. 安装相关依赖
         pip install cython && pip --no-cache-dir install -r requirements.txt
    
-   4. 编译cuda op等：
-        python setup.py develop
-   
+   3. 安装 cocoapi
+        cd code/cocoapi/PythonAPI
+	make install
+	cd ../..
+   4. 安装 paddlepaddle
+       python -m pip install paddlepaddle-gpu==2.0.0.post110 -f https://paddlepaddle.org.cn/whl/stable.html
 ## 训练集测试数据准备
    1. 将训练数据tile_round_train_20201231拷贝至tcdata/文件目录下
    2. 将测试数据tile_round_testB_20210128拷贝至tcdata/文件目录下
