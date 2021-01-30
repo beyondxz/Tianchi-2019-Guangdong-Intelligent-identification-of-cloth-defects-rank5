@@ -36,16 +36,23 @@
 - **环境配置**
 
    1. 创建并激活虚拟环境
+   
         conda create -n guangdong python=3.7 -y
         conda activate guangdong
 	pip install --upgrade pip
+	
    2. 安装相关依赖
+   
         pip install cython && pip --no-cache-dir install -r requirements.txt
+	
    3. 安装 cocoapi
+   
         cd code/cocoapi/PythonAPI
 	make install
 	cd ../..
+	
    4. 安装 paddlepaddle
+   
         python -m pip install paddlepaddle-gpu==2.0.0.post110 -f https://paddlepaddle.org.cn/whl/stable.html
 	
 ## 训练集测试数据准备
