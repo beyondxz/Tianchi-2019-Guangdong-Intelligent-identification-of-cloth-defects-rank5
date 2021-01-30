@@ -46,10 +46,13 @@
 	make install
 	cd ../..
    4. 安装 paddlepaddle
-       python -m pip install paddlepaddle-gpu==2.0.0.post110 -f https://paddlepaddle.org.cn/whl/stable.html
+        python -m pip install paddlepaddle-gpu==2.0.0.post110 -f https://paddlepaddle.org.cn/whl/stable.html
+	
 ## 训练集测试数据准备
-   1. 将训练数据tile_round_train_20201231拷贝至tcdata/文件目录下
-   2. 将测试数据tile_round_testB_20210128拷贝至tcdata/文件目录下
+
+   	1. 将训练数据tile_round_train_20201231拷贝至tcdata/文件目录下
+   	2. 将测试数据tile_round_testB_20210128拷贝至tcdata/文件目录下
+   
 ## 模型训练及预测
    - **训练**
    
