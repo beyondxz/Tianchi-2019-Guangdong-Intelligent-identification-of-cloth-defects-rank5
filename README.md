@@ -28,7 +28,7 @@
    - cuda: 11.1.0
    - cudnn: 8.0.4
    - nvidia driver version: 460.32.03
-+ deeplearning 框架: paddlepadlle-gpu 2.0.0rc1.post110
++ deeplearning 框架: paddlepadlle
 + 其他依赖请参考requirement.txt
 
 ## 环境配置及相关依赖编译安装
@@ -38,9 +38,10 @@
    1. 创建并激活虚拟环境
         conda create -n guangdong python=3.7 -y
         conda activate guangdong
+	pip install --upgrade pip
 
-   2. 安装 pytorch
-        conda install pytorch=1.1.0 torchvision=0.3.0 cudatoolkit=10.0 -c pytorch
+   2. 安装 paddlepaddle
+       python -m pip install paddlepaddle-gpu==2.0.0.post110 -f https://paddlepaddle.org.cn/whl/stable.html
         
    3. 安装其他依赖
         pip install cython && pip --no-cache-dir install -r requirements.txt
@@ -48,9 +49,10 @@
    4. 编译cuda op等：
         python setup.py develop
    
-
+## 训练集测试数据准备
+   1. 将训练数据tile_round_train_20201231拷贝至tcdata/文件目录下
+   2. 将测试数据tile_round_testB_20210128拷贝至tcdata/文件目录下
 ## 模型训练及预测
-    
    - **训练**
 	1. **运行:**
 		cd code/ & sh train.sh
