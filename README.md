@@ -1,66 +1,28 @@
 
-# 2019广东工业智造创新大赛【赛场一】季军解决方案 全套代码
+# 2021广东工业智造创新大赛—智能算法赛【初赛解决方案及算法】 
 
-队伍：**天池水也太深了**
+队伍：**天霸动霸tua**
 
-## 比赛地址：[2019广东工业智造创新大赛 布匹疵点检测](https://tianchi.aliyun.com/competition/entrance/231748/introduction?spm=5176.12281957.1004.9.38b02448pYKHIm)
-## NEW !!!
-感谢大家的关注，由于近期很多同学需要数据学习使用，经过和天池的沟通，可以将数据共享给大家学习使用
-
-数据下载地址：
-
-[百度网盘](https://pan.baidu.com/s/1DT8vlFELrjfgczGBZ1yEzQ) (密码：jp7d)
-
-## TIPS:
-因为官方给的原始数据压缩包大于4gb，我这里对每一个包进行了分卷压缩，大家注意分卷解压缩使用
-
-## core slides:
-![Aaron Swartz](https://github.com/zhengye1995/Tianchi-2019-Guangdong-Intelligent-identification-of-cloth-defects-rank5/raw/master/temp_img/%E5%9B%BE%E7%89%871.png)
-![Aaron Swartz](https://github.com/zhengye1995/Tianchi-2019-Guangdong-Intelligent-identification-of-cloth-defects-rank5/raw/master/temp_img/%E5%9B%BE%E7%89%872.png)
-![Aaron Swartz](https://github.com/zhengye1995/Tianchi-2019-Guangdong-Intelligent-identification-of-cloth-defects-rank5/raw/master/temp_img/%E5%9B%BE%E7%89%873.png)
-![Aaron Swartz](https://github.com/zhengye1995/Tianchi-2019-Guangdong-Intelligent-identification-of-cloth-defects-rank5/raw/master/temp_img/%E5%9B%BE%E7%89%874.png)
-![Aaron Swartz](https://github.com/zhengye1995/Tianchi-2019-Guangdong-Intelligent-identification-of-cloth-defects-rank5/raw/master/temp_img/%E5%9B%BE%E7%89%875.png)
-![Aaron Swartz](https://github.com/zhengye1995/Tianchi-2019-Guangdong-Intelligent-identification-of-cloth-defects-rank5/raw/master/temp_img/%E5%9B%BE%E7%89%876.png)
-## 算法流程&方案介绍 CFRCNN--变化检测思路
+## 算法流程&方案介绍
 
 + 输入图片预处理
-    - 将代检测图片和模板图片沿通道方向合并, 变为h*w*6的矩阵
+    - 将待输入图片resize成[4000,3000]
     - 归一化
-    - resize padding等常规操作
-+ 经过CFRCNN模型
-    - 基本框架：Cascade-RCNN
-    - 输入改变为6个通道的conv, 同时输入待检测图像和对应模板进行变化检测
++ 经过faster-rcnn模型
+    - 基本框架：Faster-RCNN
     - backbone： resnet50
-    - cascade 三个head 根据比赛map计算iou进行对应调整
-    - 为了解决其中三类面积过大的问题, 额外训练一个小尺度大感受野的专家模型
-    - 采用fp16加速训练和增大输入面积来缓解部分小目标问题
+    - fpn:进行多尺度特征融合
+    - mixup 数据增强
+    - Cropimage 数据增强
 + 后处理
-    - NMS
-    - 最大score二类后处理, 根据单个图片bbox最高score来对图像进行二次过滤, 判断该图像是否是正常样本
-
-### 创新性
-
-+ 变化检测
-    - 根据赛题任务, 采用变化检测思路处理检测任务
-    - 调整输入层为样本和模板同时输入 让模型学到目标和模板之间的变化差异, 使模型在切换模板后依然有良好泛化能力
-+ 专家模型解决感受野不足问题
-    - 为了降低模型复杂度, 没有采用大感受野复杂模型或者增加大anchor, 而是以resnet50为backbone
-    - resnet50感受野不足, 并且原始anchor大小不足，导致缝头、缝头印和色差等面积很大的类漏检
-    - 训练一个400尺度的大感受野专家模型
-        - 去掉面积过小的目标, 保证梯度稳定
-+ cascade iou阈值适应赛题map要求
-    - cascade 每个head的预测bbox结果在其对应iou阈值的AP上效果最好
-    - 根据比赛0.1 0.3 0.5的iou要求, 将cas三个head的iou阈值调整为0.4  0.5  0.6（可能 0.3 0.4 0.5效果更佳，未能尝试）
-    - 同时rcnn 正负样例放松overlap要求放松为 0.6 0.2
-+ 最大score二类后处理
-    - 为了保持map的同时保证acc, 依据单个样本最高score的bbox置信度大小进行二次过滤分出正常图像
-
+    - 将NMS阈值由0.5减小至0.3
+    - 将score threshold由0.05较小至0.025
 
 
 ## 代码环境及依赖
 
-+ OS: Ubuntu16.10
-+ GPU: 2080Ti * 4
++ OS: Ubuntu20.04
++ GPU: RTX3090 * 1
 + python: python3.7
 + nvidia 依赖:
    - cuda: 10.0.130
