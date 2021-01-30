@@ -16,7 +16,7 @@
     - Cropimage 数据增强
 + 后处理
     - 将NMS阈值由0.5减小至0.3
-    - 将score threshold由0.05较小至0.025
+    - 将score threshold由0.05减小至0.025
 
 
 ## 代码环境及依赖
@@ -41,7 +41,6 @@
 	pip install --upgrade pip
    2. 安装相关依赖
         pip install cython && pip --no-cache-dir install -r requirements.txt
-   
    3. 安装 cocoapi
         cd code/cocoapi/PythonAPI
 	make install
