@@ -29,7 +29,7 @@
    - cuda: 11.1.0
    - cudnn: 8.0.4
    - nvidia driver version: 460.32.03
-+ deeplearning 框架: paddlepadlle
++ 深度学习框架: paddlepadlle
 + 其他依赖请参考requirement.txt
 
 ## 环境配置及相关依赖编译安装
@@ -38,8 +38,8 @@
 
    1. 创建并激活虚拟环境
    
-        conda create -n guangdong python=3.7 -y
-        conda activate guangdong
+        conda create -n tianchi python=3.7 -y
+        conda activate tianchi
 	pip install --upgrade pip
 	
    2. 安装相关依赖
@@ -56,7 +56,7 @@
    
         python -m pip install paddlepaddle-gpu==2.0.0.post110 -f https://paddlepaddle.org.cn/whl/stable.html
 	
-## 训练集测试数据准备
+## 训练与测试数据准备
 
    	1. 将解压后的训练数据tile_round_train_20201231拷贝至tcdata/文件目录下
    	2. 将解压后的测试数据tile_round_testB_20210128拷贝至tcdata/文件目录下
@@ -64,14 +64,14 @@
 ## 模型训练及预测
    - **训练**
    
-	1. 运行: cd code/ & sh train.sh
-   	2. 训练权重文件保存在user_data/model_data目录中
+	1. 运行: cd code/ && sh train.sh
+   	2. 训练权重文件保存在user_data/model_data目录中(每次保存三个文件，其中pdrarms为权重文件)
 	
 
    - **预测**
    
-	1. 运行: cd code/ & sh test.sh	
-   	2. 训练权重文件保存在user_data/model_data目录中
+	1. 运行: cd code/ && sh test.sh	
+   	2. 最终预测结果保存在prediction_result文件夹中的result.json
    
    
 
