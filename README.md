@@ -38,7 +38,7 @@
 
    1. 创建并激活虚拟环境
    
-        conda create -n tianchi python=3.7 -y
+        conda create -n tianchi python=3.6 -y
 	
         conda activate tianchi
 	
