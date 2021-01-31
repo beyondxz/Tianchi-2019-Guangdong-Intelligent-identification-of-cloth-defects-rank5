@@ -39,7 +39,9 @@
    1. 创建并激活虚拟环境
    
         conda create -n tianchi python=3.6 -y
+	
         conda activate tianchi
+	
 	pip install --upgrade pip
 	
    2. 安装相关依赖
@@ -49,7 +51,9 @@
    3. 安装 cocoapi
    
         cd code/cocoapi/PythonAPI
+	
 	make install
+	
 	cd ../..
 	
    4. 安装 paddlepaddle
