@@ -68,7 +68,7 @@
 	
 	1. 运行（第一阶段训练）: cd code/ && sh train1.sh
 	2. 运行（第二阶段训练）: sh train2.sh
-   	2. 训练权重文件保存在user_data/model_data目录中(每次保存三个文件，其中后缀名为.pdparams的为用于预测的权重文件)
+   	2. 训练权重文件保存在user_data/model_data目录中(每次保存三个文件，其中后缀名为.pdparams的文件为用于预测的权重文件, 训练完成后的权重文件名为model_final.pdparams)
 	
 
    - **预测**
