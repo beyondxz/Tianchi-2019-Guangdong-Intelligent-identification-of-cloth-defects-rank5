@@ -11,16 +11,16 @@
     - 归一化
 + 经过faster-rcnn模型
     - 基本框架：Faster-RCNN
-    - backbone： resnet50
-    - fpn:进行多尺度特征融合
-    - mixup 数据增强
+    - Backbone： resnet50
+    - FPN:进行多尺度特征融合
+    - Mixup 数据增强
     - Cropimage 数据增强
 + 后处理
     - 将NMS阈值调整为0.3
     - 将score threshold阈值调整为0.025
 
 
-## 代码环境及依赖
+## 运行环境及依赖
 
 + OS: Ubuntu20.04
 + GPU: RTX3090 * 1
@@ -63,14 +63,18 @@
    
 ## 模型训练及预测
    - **训练**
+   
    	*产生B榜最优结果的模型是分两阶段进行训练的，第一阶段进行了Mixup数据增强，第二阶段进行了CropImage数据增强，为了便于模型的复现，下面直接给出两个阶段的训练脚本。
+	
 	1. 运行（第一阶段训练）: cd code/ && sh train1.sh
 	2. 运行（第二阶段训练）: sh train2.sh
-   	2. 训练权重文件保存在user_data/model_data目录中(每次保存三个文件，其中后缀名为pdparams的为用于预测的权重文件，训练最终生成的权重文件名为model_final.pdparams)
+   	2. 训练权重文件保存在user_data/model_data目录中(每次保存三个文件，其中后缀名为.pdparams的为用于预测的权重文件，训练最终生成的权重文件名为model_final.pdparams)
 	
 
    - **预测**
+   
    	*产生B榜最优结果的模型保存在user_data/model_data/文件夹中，名为testB.pdparams
+	
 	1. 运行: cd code/ && sh test.sh	
    	2. 最终预测结果保存在prediction_result文件夹中的result.json
    
