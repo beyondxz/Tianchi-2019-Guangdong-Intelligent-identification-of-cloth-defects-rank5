@@ -64,7 +64,7 @@
 ## 模型训练及预测
    - **训练**
    
-   	* 产生B榜最优结果的模型是分两阶段进行训练的，第一阶段进行了Mixup数据增强，第二阶段进行了CropImage数据增强，为了便于模型的复现，下面直接给出两个阶段的训练脚本。
+   	*产生B榜最优结果的模型是分两阶段进行训练的，第一阶段进行了Mixup数据增强，第二阶段进行了CropImage数据增强，为了便于模型的复现，下面直接给出两个阶段的训练脚本。
 	
 	1. 运行（第一阶段训练）: cd code/ && sh train1.sh
 	2. 运行（第二阶段训练）: sh train2.sh
@@ -73,7 +73,7 @@
 
    - **预测**
    
-   	* 产生B榜最优结果的模型保存在user_data/model_data/文件夹中，名为testB.pdparams
+   	*产生B榜最优结果的模型保存在user_data/model_data/文件夹中，名为testB.pdparams
 	
 	1. 运行: cd code/ && sh test.sh	
    	2. 最终预测结果保存在prediction_result文件夹中的result.json
