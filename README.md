@@ -36,13 +36,13 @@
 
 - **环境配置**
 
-   1. 创建并激活虚拟环境
+   + 创建并激活虚拟环境
    
         conda create -n tianchi python=3.6 -y
         conda activate tianchi
 	pip install --upgrade pip
 	
-   2. 安装相关依赖
+   + 安装相关依赖
    
         pip install cython && pip --no-cache-dir install -r requirements.txt
 	
