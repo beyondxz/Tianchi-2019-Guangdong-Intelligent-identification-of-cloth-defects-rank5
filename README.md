@@ -46,19 +46,19 @@
 	
    2. 安装相关依赖
    
-        pip install cython && pip --no-cache-dir install -r requirements.txt
+       + pip install cython && pip --no-cache-dir install -r requirements.txt
 	
    3. 安装 cocoapi
    
-        cd code/cocoapi/PythonAPI
+       + cd code/cocoapi/PythonAPI
 	
-	make install
+       + make install
 	
-	cd ../..
+       + cd ../..
 	
    4. 安装 paddlepaddle
    
-        python -m pip install paddlepaddle-gpu==2.0.0.post110 -f https://paddlepaddle.org.cn/whl/stable.html
+       + python -m pip install paddlepaddle-gpu==2.0.0.post110 -f https://paddlepaddle.org.cn/whl/stable.html
 	
 ## 训练与测试数据准备
 
