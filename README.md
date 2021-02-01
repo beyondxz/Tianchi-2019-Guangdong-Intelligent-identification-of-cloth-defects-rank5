@@ -29,7 +29,7 @@
    - cuda: 11.1.0
    - cudnn: 8.0.4
    - nvidia driver version: 460.32.03
-+ 深度学习框架: paddlepadlle
++ 深度学习框架: paddlepaddle
 + 其他依赖请参考requirement.txt
 
 ## 环境配置及相关依赖编译安装
@@ -72,7 +72,7 @@
 	
 	1. 运行（第一阶段训练）: cd code/ && sh train1.sh
 	2. 运行（第二阶段训练）: sh train2.sh
-   	2. 训练权重文件保存在user_data/model_data目录中(每次保存三个文件，其中后缀名为.pdparams的文件为用于预测的权重文件, 训练完成后的权重文件名为model_final.pdparams)
+   	2. 训练权重文件保存在user_data/model_data/文件夹中(每次保存三个文件，其中后缀名为.pdparams的文件为用于预测的权重文件, 训练完成后的权重文件名为model_final.pdparams)
 	
 
    - **预测**
